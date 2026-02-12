@@ -5,8 +5,9 @@
 /* Layer definitions */
 #define DEF 0
 #define NUM 1
-#define FN  2
-#define SYS 3
+#define NAV 2
+#define FN  3
+#define SYS 4
 
 /* Common aliases */
 #define XXX &none
