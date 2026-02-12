@@ -2,6 +2,8 @@
  * Global settings and definitions
  */
 
+#include <zmk-helpers/key-labels/42.h>
+
 /* Layer definitions */
 #define DEF 0
 #define NUM 1

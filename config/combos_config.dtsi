@@ -1,0 +1,18 @@
+/*
+ * COMBO CONFIGURATION
+ *
+ * TIMING:
+ *   FAST (30ms term, 150ms idle) - horizontal combos, multi-finger press
+ *   SLOW (40ms term, 50ms idle)  - vertical combos, single-finger slide
+ */
+
+#ifndef COMBOS_CONFIG_DTSI
+#define COMBOS_CONFIG_DTSI
+
+#define COMBO_TERM_FAST 30
+#define COMBO_TERM_SLOW 40
+
+#define COMBO_IDLE_FAST 150
+#define COMBO_IDLE_SLOW 50
+
+#endif

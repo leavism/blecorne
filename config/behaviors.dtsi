@@ -33,6 +33,12 @@ SIMPLE_MORPH(excl_at, SFT, &kp EXCL, &kp AT)
 // Tap: minus | Shift + tap: plus
 SIMPLE_MORPH(minus_plus, SFT, &kp MINUS, &kp PLUS)
 
+// Tap: left paren | Shift + tap: less-than (for combos)
+SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
+
+// Tap: right paren | Shift + tap: greater-than (for combos)
+SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
+
 /* Smart NUM: tap=num-word | double-tap=sticky-num | hold=num-layer */
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
