@@ -1,0 +1,56 @@
+/*
+ * HORIZONTAL COMBOS
+ *
+ * Work on ALL keycap profiles (Cherry, OEM, SA, DSA, etc.)
+ *
+ * KEY POSITIONS (inner 5 columns):
+ *   ╭─────────────────────╮ ╭─────────────────────╮
+ *   │ LT4 LT3 LT2 LT1 LT0 │ │ RT0 RT1 RT2 RT3 RT4 │
+ *   │ LM4 LM3 LM2 LM1 LM0 │ │ RM0 RM1 RM2 RM3 RM4 │
+ *   │ LB4 LB3 LB2 LB1 LB0 │ │ RB0 RB1 RB2 RB3 RB4 │
+ *   ╰───────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────╯
+ *           ╰─────────────╯ ╰─────────────╯
+ *
+ * VISUAL LAYOUT (Colemak-DH):
+ *   ╭──────────────────────────────╮ ╭─────────────────────────────────────╮
+ *   │    W  ────  F  ────  P       │ │       L  ────  U  ────  Y           │
+ *   │    ╰─  #  ─╯ ╰─  *  ─╯       │ │       ╰   {   ╯ ╰   }   ╯           │
+ *   │                              │ │                                     │
+ *   │    R  ────  S  ────  T       │ │       N  ────  E  ────  I  ──── O   │
+ *   │    ╰   ^   ╯ ╰   $   ╯       │ │       ╰  ( <  ╯ ╰  ) >  ╯           │
+ *   │    ╰─────── % ───────╯       │ │       ╰───────────  =  ─────────╯   │
+ *   │                              │ │                                     │
+ *   │    X  ────  C  ────  D       │ │       H  ────  ,  ────  .           │
+ *   │    ╰  copy ╯ ╰ paste ╯       │ │       ╰   [   ╯ ╰   ]   ╯           │
+ *   │    ╰────── cut ──────╯       │ │                                     │
+ *   ╰──────────────────────────────╯ ╰─────────────────────────────────────╯
+ */
+
+#include "combos_config.dtsi"
+
+/* Left hand - top row: vim motions */
+ZMK_COMBO(hash,  &kp HASH,     LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(star,  &kp STAR,     LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Left hand - home row: vim motions */
+ZMK_COMBO(caret, &kp CARET,    LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(dllr,  &kp DLLR,     LM2 LM1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(prcnt, &kp PRCNT,    LM3 LM1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Left hand - bottom row: clipboard */
+ZMK_COMBO(cut,   &kp LG(X),    LB3 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(copy,  &kp LG(C),    LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(paste, &kp LG(V),    LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Right hand - top row: braces */
+ZMK_COMBO(lbrc,  &kp LBRC,     RT1 RT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(rbrc,  &kp RBRC,     RT2 RT3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Right hand - home row: parentheses (shift for angle brackets) */
+ZMK_COMBO(lpar,  &lpar_lt,     RM1 RM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(rpar,  &rpar_gt,     RM2 RM3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(equal, &kp EQUAL,    RM1 RM4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Right hand - bottom row: brackets */
+ZMK_COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
