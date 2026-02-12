@@ -1,0 +1,41 @@
+/*
+ * Custom behaviors
+ */
+
+/* Homerow mods */
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+  ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced"; \
+               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>; \
+               require-prior-idle-ms = <150>; hold-trigger-on-release; \
+               hold-trigger-key-positions = <TRIGGER_POS>;)
+
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // Left-hand HRMs
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // Right-hand HRMs
+
+/* Mod-morphs */
+#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
+  ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>; \
+                bindings = <BINDING1>, <BINDING2>;)
+
+// Inner morphs must be defined before outer morphs that reference them
+SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
+SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+
+// Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
+
+// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
+
+// Tap: excl | Shift + tap: at
+SIMPLE_MORPH(excl_at, SFT, &kp EXCL, &kp AT)
+
+// Tap: minus | Shift + tap: plus
+SIMPLE_MORPH(minus_plus, SFT, &kp MINUS, &kp PLUS)
+
+/* Smart NUM: tap=num-word | double-tap=sticky-num | hold=num-layer */
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
+              tapping-term-ms = <200>;)
