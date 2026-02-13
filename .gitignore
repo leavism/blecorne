@@ -1,0 +1,8 @@
+.build
+.direnv
+.west
+draw/blecorne.yaml
+firmware
+modules
+zephyr
+zmk
