@@ -1,0 +1,178 @@
+parse_config:
+  zmk_additional_includes:
+    - "modules/zmk/helpers/include"
+
+  zmk_preamble: |
+    #include <zmk-helpers/key-labels/42.h>
+    #define CONFIG_WIRELESS
+
+  raw_binding_map:
+    "&sys_reset": Reset
+    "&bootloader": Boot
+    "&caps_word": Caps Word
+
+    "&bt BT_SEL 0": BT 1
+    "&bt BT_SEL 1": BT 2
+    "&bt BT_SEL 2": BT 3
+    "&bt BT_SEL 3": BT 4
+
+    "&kp LG(C)": Copy
+    "&kp LG(X)": Cut
+    "&kp LG(V)": Paste
+
+    "&dot_spc": Sentence
+    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
+    "&better_shift LSHFT 0": { "t": "Shift", "s": "Caps Word", "h": "Shift" }
+
+    "&kp LC(SPACE)": Tmux
+    # "&kp LA(Q)": Quit App
+    "&minus_plus": { "t": "-", "s": "+" }
+    "&excl_at": { "t": "!", "s": "@" }
+    "&comma_morph": { "t": ",", "s": ";",  }
+    "&dot_morph": { "t": ".", "s": ":",  }
+    "&lpar_lt": { "t": "(", "s": "<" }
+    "&rpar_gt": { "t": ")", "s": ">" }
+
+  trans_legend: { "t": "", "type": "trans" }
+
+  zmk_combos:
+    # Horizontal combos
+    combo_hash: { l: ["Horizontal Combos"] }
+    combo_star: { l: ["Horizontal Combos"] }
+    combo_caret: { l: ["Horizontal Combos"] }
+    combo_dllr: { l: ["Horizontal Combos"] }
+    combo_prcnt: { align: bottom, l: ["Horizontal Combos"] }
+    combo_cut: { align: bottom, l: ["Horizontal Combos"] }
+    combo_copy: { l: ["Horizontal Combos"] }
+    combo_paste: { l: ["Horizontal Combos"] }
+    combo_lbrc: { l: ["Horizontal Combos"] }
+    combo_rbrc: { l: ["Horizontal Combos"] }
+    combo_lpar: { l: ["Horizontal Combos"] }
+    combo_rpar: { l: ["Horizontal Combos"] }
+    combo_equal: { align: top, o: 1.5, arc_scale: 1.15, l: ["Horizontal Combos", "num"] }
+    combo_lbkt: { l: ["Horizontal Combos"] }
+    combo_rbkt: { l: ["Horizontal Combos"] }
+
+    # Vertical combos
+    combo_tilde: { l: ["Vertical Combos"] }
+    combo_at: { l: ["Vertical Combos"] }
+    combo_amps: { l: ["Vertical Combos"] }
+    combo_grave: { l: ["Vertical Combos"] }
+    combo_bslh: { l: ["Vertical Combos"] }
+    combo_pipe: { l: ["Vertical Combos"] }
+    combo_plus: { l: ["Vertical Combos"] }
+    combo_fslh: { l: ["Vertical Combos"] }
+    combo_dot_v: { l: ["Vertical Combos"] }
+    combo_under: { align: top, o: 2, arc_scale: 1.15, l: ["Horizontal Combos"] }
+    combo_minus: { l: ["Vertical Combos"] }
+    combo_colon: { l: ["Vertical Combos"] }
+
+  zmk_keycode_map:
+    # custom mappings
+    LALT: Alt
+    RALT: Alt
+    LCTRL: Ctrl
+    RCTRL: Ctrl
+    LGUI: Gui
+    RGUI: Gui
+    LSHFT: Shift
+    RSHFT: Shift
+
+    BSPC: Bspc
+    DEL: Del
+    ESC: Esc
+    RET: Enter
+    SPACE: Spc
+    TAB: Tab
+
+    PG_UP: PgUp
+    PG_DN: PgDn
+    INS: Ins
+    HOME: Home
+    END: End
+
+    UP: "↑"
+    DOWN: "↓"
+    LEFT: "←"
+    RIGHT: "→"
+
+    C_MUTE: $$mdi:volume-off$$
+    C_PP: $$mdi:play-pause$$
+    C_VOL_UP: $$mdi:volume-high$$
+    C_VOL_DN: $$mdi:volume-medium$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+
+    # defaults
+    AMPERSAND: "&"
+    AMPS: "&"
+    APOS: "'"
+    APOSTROPHE: "'"
+    ASTERISK: "*"
+    ASTRK: "*"
+    AT: "@"
+    AT_SIGN: "@"
+    BACKSLASH: \
+    BSLH: \
+    CARET: ^
+    COLON: ":"
+    COMMA: ","
+    DLLR: $
+    DOLLAR: $
+    DOT: .
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    EQUAL: "="
+    EXCL: "!"
+    EXCLAMATION: "!"
+    FSLH: /
+    GRAVE: "`"
+    GREATER_THAN: ">"
+    GT: ">"
+    HASH: "#"
+    LBKT: "["
+    LBRC: "{"
+    LEFT_BRACE: "{"
+    LEFT_BRACKET: "["
+    LEFT_PARENTHESIS: (
+    LESS_THAN: <
+    LPAR: (
+    LT: <
+    MINUS: "-"
+    NON_US_BACKSLASH: \
+    NON_US_BSLH: "|"
+    NON_US_HASH: "#"
+    NUHS: "#"
+    PERCENT: "%"
+    PERIOD: .
+    PIPE: "|"
+    PIPE2: "|"
+    PLUS: +
+    POUND: "#"
+    PRCNT: "%"
+    QMARK: "?"
+    QUESTION: "?"
+    RBKT: "]"
+    RBRC: "}"
+    RIGHT_BRACE: "}"
+    RIGHT_BRACKET: "]"
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    SEMI: ;
+    SEMICOLON: ;
+    SINGLE_QUOTE: "'"
+    SLASH: /
+    SQT: "'"
+    STAR: "*"
+    TILDE: "~"
+    TILDE2: "~"
+    UNDER: _
+    UNDERSCORE: _
+
+draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: auto
+  footer_text: "Boardsource BLE Corne"
+  glyph_tap_size: 14
+  glyph_hold_size: 12
+  glyph_shifted_size: 12
