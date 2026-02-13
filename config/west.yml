@@ -1,4 +1,8 @@
 manifest:
+  defaults:
+    remote: urob
+    revision: main
+
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -11,16 +15,28 @@ manifest:
       revision: main
       import: app/west.yml
 
-    # Required for smart_num behavior
+    # ZMK modules
     - name: zmk-auto-layer
-      remote: urob
-      revision: main
+      path: modules/zmk/auto-layer
     - name: zmk-helpers
-      remote: urob
-      revision: main
+      path: modules/zmk/helpers
     - name: zmk-adaptive-key
-      remote: urob
-      revision: main
+      path: modules/zmk/adaptive-key
+
+    # Only source necessary Zephyr modules. Remove this entire section to restore
+    # the default (needed for less common hardware).
+    - name: zephyr
+      remote: zmkfirmware
+      revision: v4.1.0+zmk-fixes
+      clone-depth: 1
+      import:
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - lvgl
+          - mbedtls # Required for Bluetooth encryption (BT_ECC, BT_CRYPTO)
+          - nanopb # Required for ZMK Studio RPC serialization
+          - tinycrypt
 
   self:
     path: config
