@@ -30,6 +30,9 @@ SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
 // Tap: excl | Shift + tap: at
 SIMPLE_MORPH(excl_at, SFT, &kp EXCL, &kp AT)
 
+// Tap: fslh | Shift + tap: asterisk
+SIMPLE_MORPH(fslh_astrk, SFT, &kp FSLH, &kp ASTRK)
+
 // Tap: minus | Shift + tap: plus
 SIMPLE_MORPH(minus_plus, SFT, &kp MINUS, &kp PLUS)
 
