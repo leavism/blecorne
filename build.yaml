@@ -7,7 +7,7 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     shield: nice_view
   - board: blecorne_right
-    # shield: nice_view
+    shield: nice_view
 
   # Uncomment the following to build a "settings reset" firmware
   # to clear persistent settings (bluetooth connections, etc).
