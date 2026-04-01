@@ -11,10 +11,14 @@ parse_config:
     "&bootloader": Boot
     "&caps_word": Caps Word
 
-    "&bt BT_SEL 0": BT 1
-    "&bt BT_SEL 1": BT 2
-    "&bt BT_SEL 2": BT 3
-    "&bt BT_SEL 3": BT 4
+    "&bt BT_SEL 0": { left: "$$mdi:bluetooth$$", right: "1" }
+    "&bt BT_SEL 1": { left: "$$mdi:bluetooth$$", right: "2" }
+    "&bt BT_SEL 2": { left: "$$mdi:bluetooth$$", right: "3" }
+    "&bt BT_SEL 3": { left: "$$mdi:bluetooth$$", right: "4" }
+    "&bt BT_CLR": $$mdi:bluetooth-off$$
+
+    "&out OUT_USB": { left: "$$mdi:keyboard$$", right: "$$mdi:usb$$" }
+    "&out OUT_BLE": { left: "$$mdi:keyboard$$", right: "$$mdi:bluetooth$$" }
 
     "&kp LG(C)": $$mdi:content-copy$$
     "&kp LG(X)": $$mdi:content-cut$$
@@ -33,17 +37,19 @@ parse_config:
     "&dot_morph": { "t": ".", "s": ":",  }
     "&lpar_lt": { "t": "(", "s": "<" }
     "&rpar_gt": { "t": ")", "s": ">" }
+    "&fslh_astrk": { "t": "/", "s": "*" }
+    "&grave_bslh": { "t":"`", "s":"\\"}
 
     # Mouse
     "&smart_mouse": $$mdi:mouse$$
-    "&mmv MOVE_UP": $$mdi:arrow-up$$
-    "&mmv MOVE_DOWN": $$mdi:arrow-down$$
-    "&mmv MOVE_LEFT": $$mdi:arrow-left$$
-    "&mmv MOVE_RIGHT": $$mdi:arrow-right$$
-    "&msc SCRL_UP": $$mdi:arrow-up-circle$$
-    "&msc SCRL_DOWN": $$mdi:arrow-down-circle$$
-    "&msc SCRL_LEFT": $$mdi:arrow-left-circle$$
-    "&msc SCRL_RIGHT": $$mdi:arrow-right-circle$$
+    "&mmv MOVE_UP": { left: "$$mdi:mouse$$", right: "$$mdi:arrow-up$$" }
+    "&mmv MOVE_DOWN": { left: "$$mdi:mouse$$", right: "$$mdi:arrow-down$$" }
+    "&mmv MOVE_LEFT": { left: "$$mdi:mouse$$", right: "$$mdi:arrow-left$$" }
+    "&mmv MOVE_RIGHT": { left: "$$mdi:mouse$$", right: "$$mdi:arrow-right$$" }
+    "&msc SCRL_UP": { left: "$$mdi:mouse-scroll-wheel$$", right: "$$mdi:arrow-up-circle$$" }
+    "&msc SCRL_DOWN": { left: "$$mdi:mouse-scroll-wheel$$", right: "$$mdi:arrow-down-circle$$" }
+    "&msc SCRL_LEFT": { left: "$$mdi:mouse-scroll-wheel$$", right: "$$mdi:arrow-left-circle$$" }
+    "&msc SCRL_RIGHT": { left: "$$mdi:mouse-scroll-wheel$$", right: "$$mdi:arrow-right-circle$$" }
     "&mkp LCLK": $$mdi:mouse-left-click$$
     "&mkp RCLK": $$mdi:mouse-right-click$$
     "&mkp MCLK": $$mdi:mouse$$
@@ -65,13 +71,12 @@ parse_config:
     combo_lpar: { l: ["Horizontal Combos", "num"] }
     combo_rpar: { l: ["Horizontal Combos", "num"] }
     combo_equal: { align: top, o: 1.5, arc_scale: 1.15, l: ["Horizontal Combos", "num"] }
+    combo_under: { align: top, o: 2, arc_scale: 1.15, l: ["Horizontal Combos"] }
     combo_lbkt: { l: ["Horizontal Combos", "num"] }
     combo_rbkt: { l: ["Horizontal Combos", "num"] }
-    combo_mouse: { l: [ "Horizontal Combos", default]}
 
     # Vertical combos
     combo_tilde: { l: ["Vertical Combos"] }
-    combo_at: { l: ["Vertical Combos"] }
     combo_amps: { l: ["Vertical Combos"] }
     combo_grave: { l: ["Vertical Combos"] }
     combo_bslh: { l: ["Vertical Combos"] }
@@ -198,9 +203,9 @@ draw_config:
   footer_text: "Boardsource BLE Corne"
 
   # Glyphs
-  glyph_tap_size: 22
+  glyph_tap_size: 26
   glyph_hold_size: 20
-  glyph_shifted_size: 16
+  glyph_shifted_size: 18
   glyph_urls:
     mdi: "https://raw.githubusercontent.com/Templarian/MaterialDesign-SVG/master/svg/{}.svg"
     tabler: "https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/{}.svg"
@@ -269,4 +274,24 @@ draw_config:
       fill: #8ec07c;
       font-style: italic;
       translate: 0 -4px;
+    }
+    .glyph.left, .glyph.right {
+      transform: scale(1.5);
+      fill: #ebdbb2;
+    }
+    .glyph.left {
+      translate: 26px 0;
+    }
+    .glyph.right {
+      translate: -24px 0;
+    }
+    text.left, text.right {
+      font-size: 22px;
+      fill: #ebdbb2;
+    }
+    text.left {
+      translate: 20px 0;
+    }
+    text.right {
+      translate: -18px 0;
     }
