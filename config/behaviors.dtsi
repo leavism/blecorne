@@ -33,6 +33,8 @@ SIMPLE_MORPH(excl_at, SFT, &kp EXCL, &kp AT)
 // Tap: ampersand | Shift + tap: pipe
 SIMPLE_MORPH(amps_pipe, SFT, &kp AMPS, &kp PIPE)
 
+SIMPLE_MORPH(grave_bslh, SFT, &kp GRAVE, &kp BSLH)
+
 // Tap: fslh | Shift + tap: asterisk
 SIMPLE_MORPH(fslh_astrk, SFT, &kp FSLH, &kp ASTRK)
 
