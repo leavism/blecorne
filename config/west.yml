@@ -22,6 +22,8 @@ manifest:
       path: modules/zmk/helpers
     - name: zmk-adaptive-key
       path: modules/zmk/adaptive-key
+    - name: zmk-tri-state
+      path: modules/zmk/tri-state
 
     # Only source necessary Zephyr modules. Remove this entire section to restore
     # the default (needed for less common hardware).

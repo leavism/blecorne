@@ -55,3 +55,6 @@ ZMK_COMBO(under, &kp UNDER,    RM1 RM3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_
 /* Right hand - bottom row: brackets */
 ZMK_COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* Cross-hand: mouse layer toggle */
+ZMK_COMBO(mouse, &smart_mouse, LM0 RM0,    DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)

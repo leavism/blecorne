@@ -10,6 +10,7 @@
 #define NAV 2
 #define FN  3
 #define SYS 4
+#define MOUSE 5
 
 /* Common aliases */
 #define XXX &none
