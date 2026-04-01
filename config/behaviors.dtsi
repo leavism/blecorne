@@ -45,6 +45,11 @@ SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 // Tap: right paren | Shift + tap: greater-than (for combos)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
+// num_word comes from zmk-auto-layer. I redefine the continue-list to extend it.
+&num_word {
+  continue-list = <BACKSPACE DELETE DOT COMMA PLUS MINUS STAR FSLH EQUAL UNDERSCORE COLON>;
+};
+
 /* Smart NUM: tap=num-word | double-tap=sticky-num | hold=num-layer */
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
