@@ -6,3 +6,4 @@ firmware
 modules
 zephyr
 zmk
+.claude/settings.local.json
