@@ -16,13 +16,14 @@ parse_config:
     "&bt BT_SEL 2": BT 3
     "&bt BT_SEL 3": BT 4
 
-    "&kp LG(C)": Copy
-    "&kp LG(X)": Cut
-    "&kp LG(V)": Paste
+    "&kp LG(C)": $$mdi:content-copy$$
+    "&kp LG(X)": $$mdi:content-cut$$
+    "&kp LG(V)": $$mdi:content-paste$$
+    "&kp LG(Q)": "Win\nClose"
 
     "&dot_spc": Sentence
-    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
-    "&better_shift LSHFT 0": { "t": "Shift", "s": "Caps Word", "h": "Shift" }
+    "&num_dance": { "t": "Smart\nNum",  }
+    "&better_shift LSHFT 0": { "t": "Better\nShift" }
 
     "&kp LC(SPACE)": Tmux
     # "&kp LA(Q)": Quit App
@@ -32,6 +33,20 @@ parse_config:
     "&dot_morph": { "t": ".", "s": ":",  }
     "&lpar_lt": { "t": "(", "s": "<" }
     "&rpar_gt": { "t": ")", "s": ">" }
+
+    # Mouse
+    "&smart_mouse": $$mdi:mouse$$
+    "&mmv MOVE_UP": $$mdi:arrow-up$$
+    "&mmv MOVE_DOWN": $$mdi:arrow-down$$
+    "&mmv MOVE_LEFT": $$mdi:arrow-left$$
+    "&mmv MOVE_RIGHT": $$mdi:arrow-right$$
+    "&msc SCRL_UP": $$mdi:arrow-up-circle$$
+    "&msc SCRL_DOWN": $$mdi:arrow-down-circle$$
+    "&msc SCRL_LEFT": $$mdi:arrow-left-circle$$
+    "&msc SCRL_RIGHT": $$mdi:arrow-right-circle$$
+    "&mkp LCLK": $$mdi:mouse-left-click$$
+    "&mkp RCLK": $$mdi:mouse-right-click$$
+    "&mkp MCLK": $$mdi:mouse$$
 
   trans_legend: { "t": "", "type": "trans" }
 
@@ -45,13 +60,14 @@ parse_config:
     combo_cut: { align: bottom, l: ["Horizontal Combos"] }
     combo_copy: { l: ["Horizontal Combos"] }
     combo_paste: { l: ["Horizontal Combos"] }
-    combo_lbrc: { l: ["Horizontal Combos"] }
-    combo_rbrc: { l: ["Horizontal Combos"] }
-    combo_lpar: { l: ["Horizontal Combos"] }
-    combo_rpar: { l: ["Horizontal Combos"] }
+    combo_lbrc: { l: ["Horizontal Combos", "num"] }
+    combo_rbrc: { l: ["Horizontal Combos", "num"] }
+    combo_lpar: { l: ["Horizontal Combos", "num"] }
+    combo_rpar: { l: ["Horizontal Combos", "num"] }
     combo_equal: { align: top, o: 1.5, arc_scale: 1.15, l: ["Horizontal Combos", "num"] }
-    combo_lbkt: { l: ["Horizontal Combos"] }
-    combo_rbkt: { l: ["Horizontal Combos"] }
+    combo_lbkt: { l: ["Horizontal Combos", "num"] }
+    combo_rbkt: { l: ["Horizontal Combos", "num"] }
+    combo_mouse: { l: [ "Horizontal Combos", default]}
 
     # Vertical combos
     combo_tilde: { l: ["Vertical Combos"] }
@@ -63,27 +79,27 @@ parse_config:
     combo_plus: { l: ["Vertical Combos"] }
     combo_fslh: { l: ["Vertical Combos"] }
     combo_dot_v: { l: ["Vertical Combos"] }
-    combo_under: { align: top, o: 2, arc_scale: 1.15, l: ["Horizontal Combos"] }
+    combo_under: { align: bottom, l: ["Horizontal Combos"] }
     combo_minus: { l: ["Vertical Combos"] }
     combo_colon: { l: ["Vertical Combos"] }
 
   zmk_keycode_map:
     # custom mappings
-    LALT: Alt
-    RALT: Alt
-    LCTRL: Ctrl
-    RCTRL: Ctrl
-    LGUI: Gui
-    RGUI: Gui
-    LSHFT: Shift
-    RSHFT: Shift
+    LALT: $$mdi:apple-keyboard-option$$
+    RALT: $$mdi:apple-keyboard-option$$
+    LCTRL: $$mdi:apple-keyboard-control$$
+    RCTRL: $$mdi:apple-keyboard-control$$
+    LGUI: $$mdi:apple-keyboard-command$$
+    RGUI: $$mdi:apple-keyboard-command$$
+    LSHFT: $$mdi:apple-keyboard-shift$$
+    RSHFT: $$mdi:apple-keyboard-shift$$
 
-    BSPC: Bspc
-    DEL: Del
-    ESC: Esc
-    RET: Enter
-    SPACE: Spc
-    TAB: Tab
+    BSPC: $$mdi:backspace$$
+    DEL: $$mdi:backspace-reverse$$
+    ESC: "ESC" 
+    RET: $$mdi:keyboard-return$$
+    SPACE: $$mdi:keyboard-space$$
+    TAB: $$mdi:keyboard-tab$$
 
     PG_UP: PgUp
     PG_DN: PgDn
@@ -170,9 +186,87 @@ parse_config:
     UNDERSCORE: _
 
 draw_config:
+  # Bigger keys for more text
+  key_w: 80
+  key_h: 80
+  combo_w: 36
+  combo_h: 40
+
+  # Layout
   append_colon_to_layer_header: false
-  dark_mode: auto
+  dark_mode: true
   footer_text: "Boardsource BLE Corne"
-  glyph_tap_size: 14
-  glyph_hold_size: 12
-  glyph_shifted_size: 12
+
+  # Glyphs
+  glyph_tap_size: 22
+  glyph_hold_size: 20
+  glyph_shifted_size: 16
+  glyph_urls:
+    mdi: "https://raw.githubusercontent.com/Templarian/MaterialDesign-SVG/master/svg/{}.svg"
+    tabler: "https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/{}.svg"
+
+  # Gruvbox Dark Theme
+  svg_extra_style: |
+    svg.keymap {
+      font-family: "GeistMono Nerd Font", "Fira Code", SFMono-Regular, Consolas, monospace;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    rect.key {
+      fill: #3c3836;
+      stroke: #504945;
+      stroke-width: 1.5;
+    }
+    rect.held {
+      fill: #689d6a;
+    }
+    rect.combo {
+      fill: #458588;
+      stroke: #83a598;
+    }
+    path.combo {
+      stroke: #83a598;
+      stroke-width: 1.5;
+    }
+    rect.ghost {
+      fill: #282828;
+    }
+    text {
+      fill: #ebdbb2;
+    }
+    text.tap {
+      fill: #ebdbb2;
+      font-size: 18px;
+    }
+    text.hold {
+      fill: #d79921;
+      font-size: 13px;
+      translate: 0 -4px;
+    }
+    .glyph.hold path, .glyph.hold {
+      fill: #d79921;
+      translate: 0 -3px;
+    }
+    text.shifted {
+      fill: #fe8019;
+      font-size: 13px;
+      translate: 0 4px;
+    }
+    .combo text.shifted {
+      font-size: 14px;
+    }
+    .combo .glyph path, .combo .glyph {
+      fill: #ebdbb2;
+    }
+    .glyph.tap path, .glyph.tap {
+      fill: #ebdbb2;
+    }
+    text.label {
+      fill: #b8bb26;
+      font-weight: bold;
+    }
+    text.layer-activator {
+      fill: #8ec07c;
+      font-style: italic;
+      translate: 0 -4px;
+    }
